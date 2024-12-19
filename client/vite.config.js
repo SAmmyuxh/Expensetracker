@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [
     nodePolyfills(),
     react()],
+    build: {
+      outDir: 'client/dist', // Specify the build output directory for the frontend
+    },
       proxy:{
         '/api':{
           target:'http://localhost:3000/api',
