@@ -20,13 +20,12 @@ if(process.env.NODE_ENV === "development"){
     app.use(morgan("dev"))
 }
 
-app.use(cors(
-    {
-        origin: ["http://localhost:3000"],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials:true
-    }
-))
+app.use(cors({
+    origin: ["https://expensetracker-plum.vercel.app", "http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 app.use(e.json())
 app.use('/api/v1/transactions',transactions)
 
