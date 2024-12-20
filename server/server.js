@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(cors({
-    origin: ["https://expensebahut.vercel.app", "http://localhost:5173"],
+    origin: ["https://expensetracker-ashy-two.vercel.app", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
