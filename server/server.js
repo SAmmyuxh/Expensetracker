@@ -24,21 +24,13 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(cors({
-    origin: ["https://expensetracker-plum.vercel.app", "http://localhost:5173"],
+    origin: ["https://expensebahut.vercel.app", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 
 app.use(e.json());
 app.use('/api/v1/transactions', transactions);
-
-if (process.env.NODE_ENV === 'production') {
-    app.use(e.static(path.join(__dirname, '..', 'client', 'dist')));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '..', 'client', 'dist', 'index.html'));
-    });
-}
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT.black} and is on ${process.env.NODE_ENV.blue}`);
